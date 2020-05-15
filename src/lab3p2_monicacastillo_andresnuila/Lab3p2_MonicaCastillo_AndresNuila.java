@@ -86,8 +86,30 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             System.out.println("Ingrese el indice del empleado que sera gerente");
                                             int ind = entrada.nextInt();
                                             Persona gerente = personas.get(ind);
-                                            //llamar al contrsuctor
-                                            Local l = new Local();
+                                            System.out.println("Ingrese el tipo de local que sera");
+                                            System.out.println("1. Tienda \n2. Quiosco \n3. Bar");
+                                            int tipoLocal = entrada.nextInt();
+                                            while (tipoLocal < 1 || tipoLocal > 3) {
+                                                System.out.println("ingrese una entrada valida");
+                                                tipoLocal = entrada.nextInt();
+                                            }
+                                            switch (tipoLocal) {
+                                                case 1:
+                                                    //llamar a constructor Tienda
+                                                    Tienda t = new Tienda();
+                                                    locales.add(t);
+                                                    break;
+                                                case 2:
+                                                    Quiosco q = new Quiosco();
+                                                    locales.add(q);
+                                                    break;
+                                                case 3:
+                                                    Bar b = new Bar();
+                                                    locales.add(b);
+                                                    break;
+                                                case 4:
+                                                    break;
+                                            }
                                             break;
                                         case 2:
                                             System.out.print("Ingrese su ID: ");
@@ -113,6 +135,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             System.out.println("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
                                             String fecha = entrada.next();
                                             System.out.println("Empleado agregado exitosamente");
+                                            Empleado e = new Empleado();
+                                            personas.add(e);
                                             break;
                                         case 3:
                                             System.out.println("Ingrese el nombre del articulo");
@@ -210,107 +234,133 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     System.out.println("¿Que desea modificar?");
                                     System.out.println("1) Modificar Local");
                                     System.out.println("2) Modificar Producto");
-                                    System.out.println("3) Modificar Empleado");
+                                    System.out.println("3) Modificar Persona");
                                     System.out.print("Ingrese la opcion deseada: ");
                                     int opcion4 = entrada.nextInt();
                                     switch (opcion4) {
                                         case 1:
-                                            System.out.println("1) Modificar Tienda");
-                                            System.out.println("2) Modificar Quiosco");
-                                            System.out.println("3) Modificar Bar");
+                                            System.out.println("Locales: ");
+                                            for (Object o : locales) {
+                                                System.out.println(locales.indexOf(o) + " = " + o);
+                                            } // Fin For
+                                            System.out.print("Ingrese el local que desea modificar: ");
+                                            int pos = entrada.nextInt();
+                                            System.out.print("¿Que atributo desea modificar?");
+                                            System.out.println("1) Nombre");
+                                            System.out.println("2) Empleado");
+                                            System.out.println("3) Producto");
+                                            System.out.println("4) Gerente");
                                             System.out.print("Ingrese la opcion deseada: ");
-                                            int op1 = entrada.nextInt();
-                                            switch (op1) {
+                                            int op2 = entrada.nextInt();
+                                            switch (op2) {
                                                 case 1:
-                                                    System.out.println("Tiendas: ");
-                                                    for (Object o : locales) {
-                                                        if (o instanceof Tienda) {
-                                                            System.out.println(locales.indexOf(o) + " = " + o);
-                                                        } // Fin If
-                                                    } // Fin For
-                                                    System.out.print("Ingrese la tienda que desea modificar: ");
-                                                    int pos = entrada.nextInt();
-                                                    System.out.print("¿Que atributo desea modificar?");
-                                                    System.out.println("1) Nombre");
-                                                    System.out.println("2) Empleado");
-                                                    System.out.println("3) Producto");
-                                                    System.out.println("4) Gerente");
-                                                    System.out.print("Ingrese la opcion deseada: ");
-                                                    int op2 = entrada.nextInt();
-                                                    switch (op2) {
-                                                        case 1:
-                                                            System.out.print("Ingrese el nuevo nombre: ");
-                                                            String nombre2 = entrada.nextLine();
-                                                            locales.get(pos).setNombre(nombre2);
-                                                            break;
-                                                        case 2:
-                                                            System.out.println("Empleados");
-                                                            System.out.println(locales.get(pos).getEmpleados());
-                                                            System.out.print("¿Que atributo desea modificar?");
-                                                            System.out.println("1) ID");
-                                                            System.out.println("2) Username");
-                                                            System.out.println("3) Contraseña");
-                                                            System.out.println("4) Correo Electronico");
-                                                            System.out.println("5) Horario de trabajo");
-                                                            System.out.print("Ingrese la opcion deseada: ");
-                                                            int op3 = entrada.nextInt();
-
-                                                            break;
-                                                        case 3:
-                                                            break;
-                                                        case 4:
-                                                            break;
-                                                        default:
-                                                            System.out.println("¡Entrada no valida!");
-                                                    } // Fin Switch Tienda
+                                                    System.out.print("Ingrese el nuevo nombre: ");
+                                                    String nombre2 = entrada.nextLine();
+                                                    locales.get(pos).setNombre(nombre2);
                                                     break;
                                                 case 2:
+                                                    System.out.println("Empleados");
+                                                    System.out.println(locales.get(pos).getEmpleados());
+                                                    System.out.print("Ingrese la posicion del empleado que desea modificar: ");
+                                                    int pose = entrada.nextInt();
                                                     System.out.print("¿Que atributo desea modificar?");
-                                                    System.out.println("1) Nombre");
-                                                    System.out.println("2) Empleado");
-                                                    System.out.println("3) Producto");
-                                                    System.out.println("4) Gerente");
+                                                    System.out.println("1) ID");
+                                                    System.out.println("2) Username");
+                                                    System.out.println("3) Contraseña");
+                                                    System.out.println("4) Correo Electronico");
+                                                    System.out.println("5) Nombre");
+                                                    System.out.println("6) Fecha de Nacimiento");
+                                                    System.out.println("7) Horario de trabajo");
                                                     System.out.print("Ingrese la opcion deseada: ");
                                                     int op3 = entrada.nextInt();
                                                     switch (op3) {
                                                         case 1:
+                                                            IDs.remove(pose);
+                                                            System.out.print("Ingrese el nuevo ID: ");
+                                                            int ID = entrada.nextInt();
+                                                            while (IDs(ID) == true) {
+                                                                System.out.println("¡El ID ingresado ya se encuentra registrado!");
+                                                                System.out.print("Ingrese su ID: ");
+                                                                ID = entrada.nextInt();
+                                                            } // Fin While
+                                                            ((Empleado) personas.get(pose)).setID(ID);
+                                                            IDs.add(ID);
                                                             break;
                                                         case 2:
+                                                            usernames.remove(pose);
+                                                            System.out.print("Ingrese su username: ");
+                                                            String username = entrada.next();
+                                                            while (Usernames(username) == true) {
+                                                                System.out.println("¡El username ingresado ya se encuentra registrado!");
+                                                                System.out.print("Ingrese su username: ");
+                                                                username = entrada.next();
+                                                            } // Fin While
+                                                            ((Empleado) personas.get(pose)).setUsername(username);
+                                                            usernames.add(username);
                                                             break;
                                                         case 3:
+                                                            System.out.print("Ingrese la nueva contraseña: ");
+                                                            String contraseña = entrada.next();
+                                                            ((Empleado) personas.get(pose)).setContraseña(contraseña);
                                                             break;
                                                         case 4:
+                                                            System.out.print("Ingrese su nuevo correo electronico: ");
+                                                            String correo = entrada.next();
+                                                            ((Empleado) personas.get(pose)).setContraseña(correo);
                                                             break;
+                                                        case 5:
+                                                            System.out.print("Ingrese el nuevo nombre: ");
+                                                            String nombre = entrada.next();
+                                                            ((Empleado) personas.get(pose)).setNombre(nombre);
+                                                            break;
+                                                        case 6:
+                                                            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                                                            System.out.println("Ingrese la nueva fecha de nacimiento");
+                                                            String nacimiento = entrada.next();
+                                                            ((Empleado) personas.get(pose)).setNacimiento(sdf.parse(nacimiento));
+                                                        case 7:
+                                                            System.out.print("Ingrese el nuevo horario de trabajo");
+                                                            String horario = entrada.nextLine();
+                                                            ((Empleado) personas.get(pose)).setHorario(horario);
                                                         default:
                                                             System.out.println("¡Entrada no valida!");
-                                                    } // Fin Switch Tienda
+                                                    } // Fin Switch Modificar Empleado Tienda
                                                     break;
                                                 case 3:
-                                                    System.out.print("¿Que atributo desea modificar?");
-                                                    System.out.println("1) Nombre");
-                                                    System.out.println("2) Empleado");
-                                                    System.out.println("3) Producto");
-                                                    System.out.println("4) Gerente");
-                                                    System.out.print("Ingrese la opcion deseada: ");
-                                                    int op4 = entrada.nextInt();
-                                                    switch (op4) {
-                                                        case 1:
-                                                            break;
-                                                        case 2:
-                                                            break;
-                                                        case 3:
-                                                            break;
-                                                        case 4:
-                                                            break;
-                                                        default:
-                                                            System.out.println("¡Entrada no valida!");
-                                                    } // Fin Switch Tienda
+                                                    break;
+                                                case 4:
                                                     break;
                                                 default:
                                                     System.out.println("¡Entrada no valida!");
-                                            } // Fin Switch Agregar Locales
+                                            } // Fin Switch Tienda
                                             break;
                                         case 2:
+                                            System.out.println("Productos: ");
+                                            for (Object o : productos) {
+                                                System.out.println(productos.indexOf(o) + " = " + o);
+                                            } // Fin For
+                                            System.out.print("Ingrese el local que desea modificar: ");
+                                            int pos2 = entrada.nextInt();
+                                            System.out.print("¿Que atributo desea modificar?");
+                                            System.out.println("1) Descripcion");
+                                            System.out.println("2) Nombre");
+                                            System.out.println("3) Precio");
+                                            System.out.print("Ingrese la opcion deseada: ");
+                                            int op3 = entrada.nextInt();
+                                            switch (op3) {
+                                                case 1:
+                                                    System.out.println("Ingrese la nueva descripcion: ");
+                                                    String descripcion = entrada.nextLine();
+                                                    productos.get(pos2).setDescripcion(descripcion);
+                                                    break;
+                                                case 2:
+                                                    System.out.println("Ingrese ");
+                                                    break;
+                                                case 3:
+                                                    break;
+                                                default:
+                                                    System.out.println("¡Entrada no valida!");
+                                            } // Fin Switch
                                             break;
                                         case 3:
                                             break;
@@ -325,12 +375,36 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     System.out.println("3) Eliminar Empleado");
                                     System.out.print("Ingrese la opcion deseada: ");
                                     int opcion5 = entrada.nextInt();
+                                    int eliminar;
                                     switch (opcion5) {
                                         case 1:
+                                            String cadenaLocales = "";
+                                            for (int i = 0; i < locales.size(); i++) {
+                                                cadenaLocales += "[" + i + "]" + locales.get(i);
+                                            }
+                                            System.out.println("Ingrese el indice a eliminar");
+                                            eliminar = entrada.nextInt();
+                                            locales.remove(eliminar);
                                             break;
                                         case 2:
+                                            String cadenaProductos = "";
+                                            for (int i = 0; i < productos.size(); i++) {
+                                                cadenaProductos += "[" + i + "]" + productos.get(i);
+                                            }
+                                            System.out.println("Ingrese el indice a eliminar");
+                                            eliminar = entrada.nextInt();
+                                            productos.remove(eliminar);
                                             break;
                                         case 3:
+                                            cadenaLocales = "";
+                                            Persona o = new Persona();
+                                            for (int i = 0; i < locales.size(); i++) {
+                                                o = personas.get(i);
+                                                cadenaLocales += "[" + i + "]" + locales.get(i);
+                                            }
+                                            System.out.println("Ingrese el indice a eliminar");
+                                            eliminar = entrada.nextInt();
+                                            personas.remove(eliminar);
                                             break;
                                         default:
                                             System.out.println("¡Entrada no valida!");
@@ -402,6 +476,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                 System.out.print("Ingrese su username: ");
                                 user2 = entrada.next();
                             } // Fin While
+                            System.out.println("¿Con cuenta dinero cuenta el dia de hoy?");
+                            double dinero = entrada.nextDouble();
                             System.out.println("¡Bienvenido Cliente!");
                             System.out.println("¿Que desea hacer el dia de hoy?");
                             System.out.println("1) ");
@@ -416,6 +492,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                             System.out.println("¡Entrada no valida!");
                     } // Fin Switch Roles
                     break;
+
                 case 2:
                     System.out.println("Porfavor ingrese los siguientes datos: ");
                     System.out.print("Ingrese su ID: ");
@@ -444,6 +521,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                     System.out.println("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
                     String fecha = entrada.next();
                     System.out.println("¡Se ha logrado registrar exitosamente!");
+                    Cliente cliente = new Cliente();
+                    personas.add(cliente);
                     break;
                 case 3:
                     // Aqui va la Salida
@@ -490,4 +569,3 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
         return false;
     }
 } // Fin Class
-
