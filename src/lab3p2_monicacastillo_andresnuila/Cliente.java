@@ -9,6 +9,6 @@ package lab3p2_monicacastillo_andresnuila;
  *
  * @author enuil
  */
-public class Cliente {
+public class Cliente extends Persona {
     
 }

@@ -9,6 +9,6 @@ package lab3p2_monicacastillo_andresnuila;
  *
  * @author enuil
  */
-public class Ropa {
+public class Ropa extends Producto {
     
 }
