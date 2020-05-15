@@ -40,6 +40,89 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                     switch (opcion1) {
                         case 1:
                             System.out.println("¡Bienvenido Administrador!");
+                            System.out.println("¿Que desea hacer el dia de hoy?");
+                            System.out.println("1) Agregar Elemento");
+                            System.out.println("2) Modificar Elemento");
+                            System.out.println("3) Eliminar Elemento");
+                            System.out.println("4) Listar Elemento");
+                            System.out.print("Ingrese la opcion deseada: ");
+                            int opcion3 = entrada.nextInt();
+                            switch (opcion3) {
+                                case 1:
+                                    System.out.println("¿Que desea agregar?");
+                                    System.out.println("1) Agregar Local");
+                                    System.out.println("2) Agregar Producto");
+                                    System.out.println("3) Agregar Empleado");
+                                    System.out.print("Ingrese la opcion deseada: ");
+                                    int opcion2 = entrada.nextInt();
+                                    switch (opcion2) {
+                                        case 1:
+                                            break;
+                                        case 2:
+                                            break;
+                                        case 3:
+                                            break;
+                                        default:
+                                            System.out.println("¡Entrada no valida!");
+                                    } // Fin Switch Agregar
+                                    break;
+                                case 2:
+                                    System.out.println("¿Que desea modificar?");
+                                    System.out.println("1) Modificar Local");
+                                    System.out.println("2) Modificar Producto");
+                                    System.out.println("3) Modificar Empleado");
+                                    System.out.print("Ingrese la opcion deseada: ");
+                                    int opcion4 = entrada.nextInt();
+                                    switch (opcion4) {
+                                        case 1:
+                                            break;
+                                        case 2:
+                                            break;
+                                        case 3:
+                                            break;
+                                        default:
+                                            System.out.println("¡Entrada no valida!");
+                                    } // Fin Switch Modificar
+                                    break;
+                                case 3:
+                                    System.out.println("¿Que desea eliminar?");
+                                    System.out.println("1) Eliminar Local");
+                                    System.out.println("2) Eliminar Producto");
+                                    System.out.println("3) Eliminar Empleado");
+                                    System.out.print("Ingrese la opcion deseada: ");
+                                    int opcion5 = entrada.nextInt();
+                                    switch (opcion5) {
+                                        case 1:
+                                            break;
+                                        case 2:
+                                            break;
+                                        case 3:
+                                            break;
+                                        default:
+                                            System.out.println("¡Entrada no valida!");
+                                    } // Fin Switch Eliminar
+                                    break;
+                                case 4:
+                                    System.out.println("¿Que desea listar?");
+                                    System.out.println("1) Listar Local");
+                                    System.out.println("2) Listar Producto");
+                                    System.out.println("3) Listar Empleado");
+                                    System.out.print("Ingrese la opcion deseada: ");
+                                    int opcion6 = entrada.nextInt();
+                                    switch (opcion6) {
+                                        case 1:
+                                            break;
+                                        case 2:
+                                            break;
+                                        case 3:
+                                            break;
+                                        default:
+                                            System.out.println("¡Entrada no valida!");
+                                            break;
+                                    } // Fin Switch Listar
+                                default:
+                                    System.out.println("¡Entrada no valida!");
+                            } // Fin Switch CRUD
                             break;
                         case 2:
                             System.out.println("¡Bienvenido Cliente!");
@@ -72,6 +155,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     String nombre = entrada.nextLine();
                                     System.out.println("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
                                     String fecha = entrada.next();
+                                    System.out.println("¡Bienvenido " + username + " !");
+                                    System.out.println("¡Ya puedes realizar tus compras!");
                                     break;
                                 case 2:
                                     resp = 'n';
@@ -91,88 +176,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                 default:
                     System.out.println("¡Entrada no valida!");
             } // Fin Switch Log In
-
-//                    System.out.println("¿Que desea agregar?");
-//                    System.out.println("1) Agregar Local");
-//                    System.out.println("2) Agregar Producto");
-//                    System.out.println("3) Agregar Empleado");
-//                    System.out.print("Ingrese la opcion deseada: ");
-//                    int opcion2 = entrada.nextInt();
-//                    switch (opcion2) {
-//                        case 1:
-//                            break;
-//                        case 2:
-//                            break;
-//                        case 3:
-//                            break;
-//                        default:
-//                            System.out.println("¡Entrada no valida!");
-//                    } // Fin Switch Agregar
-//                    break;
-//                case 2:
-//                    System.out.println("¿Que desea modificar?");
-//                    System.out.println("1) Modificar Local");
-//                    System.out.println("2) Modificar Producto");
-//                    System.out.println("3) Modificar Empleado");
-//                    System.out.print("Ingrese la opcion deseada: ");
-//                    int opcion3 = entrada.nextInt();
-//                    switch (opcion3) {
-//                        case 1:
-//                            break;
-//                        case 2:
-//                            break;
-//                        case 3:
-//                            break;
-//                        default:
-//                            System.out.println("¡Entrada no valida!");
-//                    } // Fin Switch Agregar
-//                    break;
-//                case 3:
-//                    System.out.println("¿Que desea eliminar?");
-//                    System.out.println("1) Eliminar Local");
-//                    System.out.println("2) Eliminar Producto");
-//                    System.out.println("3) Eliminar Empleado");
-//                    System.out.print("Ingrese la opcion deseada: ");
-//                    int opcion4 = entrada.nextInt();
-//                    switch (opcion4) {
-//                        case 1:
-//                            break;
-//                        case 2:
-//                            break;
-//                        case 3:
-//                            break;
-//                        default:
-//                            System.out.println("¡Entrada no valida!");
-//                    } // Fin Switch Agregar
-//                    break;
-//                case 4:
-//                    System.out.println("¿Que desea listar?");
-//                    System.out.println("1) Listar Local");
-//                    System.out.println("2) Listar Producto");
-//                    System.out.println("3) Listar Empleado");
-//                    System.out.print("Ingrese la opcion deseada: ");
-//                    int opcion5 = entrada.nextInt();
-//                    switch (opcion5) {
-//                        case 1:
-//                            break;
-//                        case 2:
-//                            break;
-//                        case 3:
-//                            break;
-//                        default:
-//                            System.out.println("¡Entrada no valida!");
-//                    } // Fin Switch Agregar
-//                    break;
-//                case 5:
-//                    // Aqui va la Salida
-//                    resp = 'n';
-//                    break;
-//                default:
-//                    System.out.println("¡Entrada no valida!");
-//            } // Fin Switch
-//        } // Fin While Resp
-        } // Fin Main
-    }
+        } // Fin While Resp
+    } // Fin Main
 
     public static boolean IDs(int ID) {
         for (int i = 0; i < IDs.size(); i++) {
