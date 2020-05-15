@@ -2,9 +2,9 @@ package lab3p2_monicacastillo_andresnuila;
 
 public class Producto {
 
-    private String nombre;
-    private double precio;
-    private String descripcion;
+    protected String nombre;
+    protected double precio;
+    protected String descripcion;
 
     public Producto() {
     }

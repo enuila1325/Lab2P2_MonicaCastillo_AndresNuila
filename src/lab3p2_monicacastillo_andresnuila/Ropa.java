@@ -1,14 +1,62 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab3p2_monicacastillo_andresnuila;
 
-/**
- *
- * @author enuil
- */
 public class Ropa extends Producto {
-    
+
+    private String talla;
+    private String sexo;
+
+    public Ropa() {
+    }
+
+    public Ropa(String talla, String sexo, String nombre, double precio, String descripcion) {
+        super(nombre, precio, descripcion);
+        this.talla = talla;
+        this.sexo = sexo;
+    }
+
+    public String getTalla() {
+        return talla;
+    }
+
+    public void setTalla(String talla) {
+        this.talla = talla;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "talla=" + talla + ", sexo=" + sexo + '}';
+    }
+
 }

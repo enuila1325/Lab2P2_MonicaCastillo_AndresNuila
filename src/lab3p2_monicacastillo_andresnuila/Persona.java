@@ -4,14 +4,23 @@ import java.util.Date;
 
 public class Persona {
 
-    private String username;
-    private int ID;
-    private String contraseña;
-    private String correo;
-    private String nombre;
-    private Date nacimiento;
+    protected String username;
+    protected int ID;
+    protected String contraseña;
+    protected String correo;
+    protected String nombre;
+    protected Date nacimiento;
 
     public Persona() {
+    }
+
+    public Persona(String username, int ID, String contraseña, String correo, String nombre, Date nacimiento) {
+        this.username = username;
+        this.ID = ID;
+        this.contraseña = contraseña;
+        this.correo = correo;
+        this.nombre = nombre;
+        this.nacimiento = nacimiento;
     }
 
     public String getUsername() {
@@ -64,7 +73,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        return ", nombre=" + nombre + "username=" + username + ", ID=" + ID + ", contrase\u00f1a=" + contraseña + ", correo=" + correo + ", nacimiento=" + nacimiento;
+        return "Nombre=" + nombre + "\n-username=" + username + ", ID=" + ID + ", contraseña=" + contraseña + ", correo=" + correo + ", nacimiento=" + nacimiento;
     }
 
 }

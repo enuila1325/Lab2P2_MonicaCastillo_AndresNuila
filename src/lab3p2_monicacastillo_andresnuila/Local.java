@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Local {
 
-    private String nombre;
-    private ArrayList<Empleado> empleados = new ArrayList();
-    private ArrayList<Producto> productos = new ArrayList();
-    private Empleado jefe;
+    protected String nombre;
+    protected ArrayList<Empleado> empleados = new ArrayList();
+    protected ArrayList<Producto> productos = new ArrayList();
+    protected Empleado jefe;
 
     public Local() {
     }
