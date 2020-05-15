@@ -5,8 +5,8 @@ public class Juguete extends Producto{
     public Juguete() {
     }
 
-    public Juguete(String nombre, double precio, String descripcion) {
-        super(nombre, precio, descripcion);
+    public Juguete(String nombre, double precio, String descripcion, int cantidad) {
+        super(nombre, precio, descripcion, cantidad);
     }
 
     public String getNombre() {

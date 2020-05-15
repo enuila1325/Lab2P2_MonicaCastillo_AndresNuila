@@ -5,14 +5,16 @@ public class Producto {
     protected String nombre;
     protected double precio;
     protected String descripcion;
+    protected int cantidad;
 
     public Producto() {
     }
 
-    public Producto(String nombre, double precio, String descripcion) {
+    public Producto(String nombre, double precio, String descripcion, int cantidad) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion = descripcion;
+        this.cantidad = cantidad;
     }
 
     public String getNombre() {
@@ -39,10 +41,17 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
     @Override
     public String toString() {
-        return "Producto ->\n" + "nombre=" + nombre + ", precio=" + precio + ", descripcion=" + descripcion;
+        return "Producto ->\n" + "nombre=" + nombre + ", precio=" + precio + ", descripcion=" + descripcion + ", cantidad " + cantidad;
     }
-    
-    
+
 }

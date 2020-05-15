@@ -10,8 +10,8 @@ public class Comida extends Producto {
     public Comida() {
     }
 
-    public Comida(String tipo, Date vencimiento, String nombre, double precio, String descripcion) {
-        super(nombre, precio, descripcion);
+    public Comida(String tipo, Date vencimiento, String nombre, double precio, String descripcion, int cantidad) {
+        super(nombre, precio, descripcion, cantidad);
         this.tipo = tipo;
         this.vencimiento = vencimiento;
     }

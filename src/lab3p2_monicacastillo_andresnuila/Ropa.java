@@ -8,8 +8,8 @@ public class Ropa extends Producto {
     public Ropa() {
     }
 
-    public Ropa(String talla, String sexo, String nombre, double precio, String descripcion) {
-        super(nombre, precio, descripcion);
+    public Ropa(String talla, String sexo, String nombre, double precio, String descripcion, int cantidad) {
+        super(nombre, precio, descripcion, cantidad);
         this.talla = talla;
         this.sexo = sexo;
     }
@@ -53,6 +53,15 @@ public class Ropa extends Producto {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
 
     @Override
     public String toString() {
