@@ -482,17 +482,17 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     }
                                     System.out.println("Ingrese de que tienda desea comprar productos");
                                     indice = entrada.nextInt();
-                                    while (indice - 1 > Tiendas.size()) {
+                                    while (indice - 1 > locales.size()) {
                                         System.out.println("ingrese una entrada valida");
                                         indice = entrada.nextInt();
                                     }
-                                    System.out.println(locales.get(indice).getProductos);
+                                    System.out.println(locales.get(indice).getProductos());
                                     System.out.println("Ingrese el indice del producto que comprara");
                                     int compra = entrada.nextInt();
                                     System.out.println("ingrese la cantidad a conprar");
                                     int comprar = entrada.nextInt();
-                                    producto p = locales.get(indice).getProductos.get(compra);
-                                    while (p.getCantidad < comprar) {
+                                    Producto p = locales.get(indice).getProductos().get(compra);
+                                    while (p.getCantidad() < comprar) {
                                         System.out.println("no hay suficiente producto. Intente de nuevo");
                                         comprar = entrada.nextInt();
                                     }
@@ -507,15 +507,14 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     System.out.println(cadena);
                                     System.out.println("ingrese el indice del cliente");
                                     int atendido = entrada.nextInt();
-
-                                    int f2 = ((Cliente) personas.get(atendido).getMoney());
-
-                                    int gasto = p.getPrecio() * comprar;
+                                    double f2;
+                                    f2 = ((Cliente)personas.get(atendido)).getMoney();
+                                    double gasto = p.getPrecio() * comprar;
                                     if (f2 < gasto) {
                                         System.out.println("NO CUENTA CON EL SALDO NECESARIO PARA REALIZAR LA COMPRA");
                                         break;
                                     } else {
-                                        ((Cliente) personas.get(atendido).setMoney(f2 - gasto));
+                                        ((Cliente) personas.get(atendido)).setMoney(f2 - gasto);
                                     }
                                     for (int i = 0; i < 10; i++) {
                                         if (personas.get(i) instanceof Empleado) {
@@ -526,10 +525,10 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     System.out.println(cadena);
                                     System.out.println("ingrese el indice del usuario que lo atendio");
                                     int atendio = entrada.nextInt();
-                                    int ventas = ((Empleado) personas.get(atendio).getProductoVendido()) + 1;
-                                    (Empleado) personas.get(atendio).setProductoVendido(ventas);
+                                    int ventas = ((Empleado) personas.get(atendio)).getProductoVendido() + 1;
+                                    ((Empleado) personas.get(atendio)).setProductoVendido(ventas);
                                     break;
-                            }
+                            } // Fin Switch
                             System.out.print("Ingrese la opcion deseada: ");
                             int opcion2 = entrada.nextInt();
                             switch (opcion2) {
