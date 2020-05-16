@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab3p2_monicacastillo_andresnuila;
 
 import java.text.ParseException;
@@ -11,10 +6,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-/**
- *
- * @author enuil
- */
 public class Lab3p2_MonicaCastillo_AndresNuila {
 
     static Scanner entrada = new Scanner(System.in);
@@ -25,9 +16,6 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
     static ArrayList<Persona> personas = new ArrayList();
     static ArrayList<Producto> productos = new ArrayList();
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws ParseException {
         // TODO code application logic here
         char resp = 's';
@@ -82,6 +70,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                 }
                                                 cadena += "\n";
                                             }
+                                            System.out.println(cadena);
                                             System.out.println("--------------------------");
                                             System.out.println("Ingrese el indice del empleado que sera gerente");
                                             int ind = entrada.nextInt();
@@ -512,7 +501,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                     System.out.print("¿Con cuenta dinero cuenta el dia de hoy?");
                     double dinero = entrada.nextDouble();
                     System.out.println("¡Se ha logrado registrar exitosamente!");
-                    Cliente cliente = new Cliente(ID, contraseña, correo, nombre, sdf3.parse(fecha),dinero, username);
+                    Cliente cliente = new Cliente(ID, contraseña, correo, nombre, sdf3.parse(fecha), dinero, username);
                     personas.add(cliente);
                     break;
                 case 3:
