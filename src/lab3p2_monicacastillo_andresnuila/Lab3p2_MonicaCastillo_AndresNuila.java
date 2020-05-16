@@ -194,11 +194,31 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     //llamar metodo constructor ropa
                                                     Ropa r = new Ropa();
                                                     productos.add(r);
+                                                    System.out.println("Las tiendas a su disposicion son las siguientes");
+                                                    for (Object o : locales) {
+                                                        if (o instanceof Tienda) {
+                                                            System.out.println(locales.indexOf(o) + " = " + o);
+                                                        }
+                                                    }
+
+                                                    System.out.println("Ingrese a que tienda quiere adiciona este producto");
+                                                    int auxiliar = entrada.nextInt();
+                                                    locales.get(auxiliar).getProductos().add(r);
                                                     break;
                                                 case 2:
                                                     //Llamar metodo construcor de juguete
                                                     Juguete j = new Juguete();
                                                     productos.add(j);
+                                                    System.out.println("Las tiendas a su disposicion son las siguientes");
+                                                    for (Object o : locales) {
+                                                        if (o instanceof Tienda) {
+                                                            System.out.println(locales.indexOf(o) + " = " + o);
+                                                        }
+                                                    }
+
+                                                    System.out.println("Ingrese a que tienda quiere adiciona este producto");
+                                                    auxiliar = entrada.nextInt();
+                                                    locales.get(auxiliar).getProductos().add(j);
                                                     break;
                                                 case 3:
                                                     System.out.println("Ingrese si es comida o bebida");
@@ -221,6 +241,16 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     //Llamar metodo constructor Comida
                                                     Comida c = new Comida();
                                                     productos.add(c);
+                                                    System.out.println("Las tiendas a su disposicion son las siguientes");
+                                                    for (Object o : locales) {
+                                                        if (o instanceof Tienda) {
+                                                            System.out.println(locales.indexOf(o) + " = " + o);
+                                                        }
+                                                    }
+
+                                                    System.out.println("Ingrese a que tienda quiere adiciona este producto");
+                                                    auxiliar = entrada.nextInt();
+                                                    locales.get(auxiliar).getProductos().add(c);
                                                     break;
                                                 default:
                                                     break;
