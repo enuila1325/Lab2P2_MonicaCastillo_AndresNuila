@@ -17,6 +17,10 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
     static ArrayList<Persona> clientes = new ArrayList();
     static ArrayList<Persona> empleados = new ArrayList();
     static ArrayList<Producto> productos = new ArrayList();
+    static ArrayList pvendidos = new ArrayList();
+    static ArrayList emvendio = new ArrayList();
+    static ArrayList ccompro = new ArrayList();
+    static ArrayList precios = new ArrayList();
 
     public static void main(String[] args) throws ParseException {
         // TODO code application logic here
@@ -126,6 +130,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             String fecha = entrada.next();
                                             System.out.print("Ingrese su horario de trabajo: ");
                                             String horario = entrada.nextLine();
+                                            entrada.nextLine();
                                             System.out.println("Empleado agregado exitosamente");
                                             SimpleDateFormat sdf3 = new SimpleDateFormat("dd/MM/yyyy");
                                             Empleado e = new Empleado(username, ID, contraseña, correo, nombre, sdf3.parse(fecha), horario, 0);
@@ -449,12 +454,14 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     break;
                                 case 4:
                                     System.out.println("Facturacion: ");
-                                    System.out.println("Locales: ");
-                                    for (Object o : locales) {
-                                        System.out.println(locales.indexOf(o) + " = " + o);
-                                    } // Fin For
-                                    System.out.print("Ingrese el indice de la tienda a seleccionar");
-                                    int posi = entrada.nextInt();
+                                    System.out.println("Productos Vendidos: ");     
+                                    System.out.println(pvendidos);
+                                    System.out.println("Empleados que han vendido: ");
+                                    System.out.println(emvendio);
+                                    System.out.println("Clientes que han comprado: ");
+                                    System.out.println(ccompro);
+                                    System.out.println("Precios: ");
+                                    System.out.println(precios);
                                     break;
                                 default:
                                     System.out.println("¡Entrada no valida!");
@@ -513,6 +520,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     System.out.println("ingrese la cantidad a conprar");
                                     int comprar = entrada.nextInt();
                                     Producto p = locales.get(indice).getProductos().get(compra); // Compre
+                                    precios.add(locales.get(indice).getProductos().get(compra));
+                                    pvendidos.add(p);
                                     while (p.getCantidad() < comprar) {
                                         System.out.println("no hay suficiente producto. Intente de nuevo");
                                         comprar = entrada.nextInt();
@@ -530,6 +539,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     int atendido = entrada.nextInt();
                                     double f2;
                                     f2 = ((Cliente) clientes.get(atendido)).getMoney();
+                                    ccompro.add(((Cliente) clientes.get(atendido)));
                                     double gasto = p.getPrecio() * comprar;
                                     if (f2 < gasto) {
                                         System.out.println("NO CUENTA CON EL SALDO NECESARIO PARA REALIZAR LA COMPRA");
@@ -546,6 +556,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     System.out.println(cadena);
                                     System.out.println("ingrese el indice del usuario que lo atendio");
                                     int atendio = entrada.nextInt(); // Empleado Vendio
+                                    emvendio.add(((Empleado) empleados.get(atendio)));
+                                    pvendidos.add(((Empleado) empleados.get(atendio)).getProductoVendido());
                                     int ventas = ((Empleado) empleados.get(atendio)).getProductoVendido() + 1;
                                     ((Empleado) empleados.get(atendio)).setProductoVendido(ventas);
                                     break;
