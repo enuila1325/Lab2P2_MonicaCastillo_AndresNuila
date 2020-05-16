@@ -64,7 +64,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             String local = entrada.next();
                                             System.out.println("--------------------------");
                                             String cadena = "";
-                                            for (int i = 0; i < 10; i++) {
+                                            for (int i = 0; i < personas.size(); i++) {
                                                 if (personas.get(i) instanceof Empleado) {
                                                     cadena += "[" + i + "]" + personas.get(i);
                                                 }
@@ -434,10 +434,13 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     } // Fin Switch Eliminar
                                     break;
                                 case 4:
-                                    System.out.println("Localess: ");
+                                    System.out.println("Facturacion: ");
+                                    System.out.println("Locales: ");
                                     for (Object o : locales) {
                                         System.out.println(locales.indexOf(o) + " = " + o);
                                     } // Fin For
+                                    System.out.print("Ingrese el indice de la tienda a seleccionar");
+                                    int posi = entrada.nextInt();
                                     break;
                                 default:
                                     System.out.println("¡Entrada no valida!");
@@ -495,7 +498,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     int compra = entrada.nextInt();
                                     System.out.println("ingrese la cantidad a conprar");
                                     int comprar = entrada.nextInt();
-                                    Producto p = locales.get(indice).getProductos().get(compra);
+                                    Producto p = locales.get(indice).getProductos().get(compra); // Compre
                                     while (p.getCantidad() < comprar) {
                                         System.out.println("no hay suficiente producto. Intente de nuevo");
                                         comprar = entrada.nextInt();
@@ -528,7 +531,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     }
                                     System.out.println(cadena);
                                     System.out.println("ingrese el indice del usuario que lo atendio");
-                                    int atendio = entrada.nextInt();
+                                    int atendio = entrada.nextInt(); // Empleado Vendio
                                     int ventas = ((Empleado) personas.get(atendio)).getProductoVendido() + 1;
                                     ((Empleado) personas.get(atendio)).setProductoVendido(ventas);
                                     break;
