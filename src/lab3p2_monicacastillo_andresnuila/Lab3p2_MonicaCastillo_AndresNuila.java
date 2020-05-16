@@ -85,15 +85,15 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             switch (tipoLocal) {
                                                 case 1:
                                                     //llamar a constructor Tienda
-                                                    Tienda t = new Tienda();
+                                                    Tienda t = new Tienda(local, (Empleado) (gerente));
                                                     locales.add(t);
                                                     break;
                                                 case 2:
-                                                    Quiosco q = new Quiosco();
+                                                    Quiosco q = new Quiosco(local, (Empleado) (gerente));
                                                     locales.add(q);
                                                     break;
                                                 case 3:
-                                                    Bar b = new Bar();
+                                                    Bar b = new Bar(local, (Empleado) (gerente));
                                                     locales.add(b);
                                                     break;
                                                 case 4:
@@ -141,6 +141,9 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             System.out.println("Ingrese una breve descripcion del articulo");
                                             String descripcion = entrada.nextLine();
                                             entrada.nextLine();
+                                            System.out.println("Ingrese la cantidad de producto");
+                                            int cantidad = entrada.nextInt();
+                                            entrada.nextInt();
                                             entrada = new Scanner(System.in);
                                             System.out.println("ingrese el tipo de producto");
                                             System.out.println("1. Ropa");
@@ -162,10 +165,13 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     switch (t) {
                                                         case 1:
                                                             talla = "S";
+                                                            break;
                                                         case 2:
                                                             talla = "M";
+                                                            break;
                                                         case 3:
                                                             talla = "L";
+                                                            break;
                                                         default:
                                                             break;
                                                     }
@@ -185,7 +191,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                             break;
                                                     }
                                                     //llamar metodo constructor ropa
-                                                    Ropa r = new Ropa();
+                                                    Ropa r = new Ropa(talla, user, producto, precio, descripcion, cantidad);
                                                     productos.add(r);
                                                     System.out.println("Las tiendas a su disposicion son las siguientes");
                                                     for (Object o : locales) {
@@ -232,7 +238,11 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     String fecha2 = entrada.next();
                                                     Date d = n.parse(fecha2);//aqui parsear con simple date format
                                                     //Llamar metodo constructor Comida
-                                                    Comida c = new Comida(tipo, d, String nombre, double precio, String descripcion, int cantidad);
+                                                    Comida c = new Comida(tipo, d, String nombre
+                                                    , double precio,
+                                                     String descripcion
+                                                    , int cantidad
+                                                    );
                                                     productos.add(c);
                                                     System.out.println("Las tiendas a su disposicion son las siguientes");
                                                     for (Object o : locales) {

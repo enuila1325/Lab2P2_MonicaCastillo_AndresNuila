@@ -6,6 +6,7 @@ public class Bar extends Local {
 
     public Bar() {
     }
+    
 
     public String getNombre() {
         return nombre;
