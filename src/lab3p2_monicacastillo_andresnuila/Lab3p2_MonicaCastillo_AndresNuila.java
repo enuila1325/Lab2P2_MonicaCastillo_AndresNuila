@@ -54,8 +54,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                 case 1:
                                     System.out.println("¿Que desea agregar?");
                                     System.out.println("1) Agregar Local");
-                                    System.out.println("2) Agregar Producto");
-                                    System.out.println("3) Agregar Empleado");
+                                    System.out.println("2) Agregar Empleado");
+                                    System.out.println("3) Agregar Producto");
                                     System.out.print("Ingrese la opcion deseada: ");
                                     int opcion2 = entrada.nextInt();
                                     switch (opcion2) {
@@ -117,13 +117,14 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             } // Fin While
                                             System.out.print("Ingrese su contraseña: ");
                                             String contraseña = entrada.next();
-                                            System.out.println("Ingrese su correo electronico: ");
+                                            System.out.print("Ingrese su correo electronico: ");
                                             String correo = entrada.next();
-                                            System.out.println("Ingrese su nombre completo: ");
+                                            System.out.print("Ingrese su nombre completo: ");
                                             String nombre = entrada.nextLine();
-                                            System.out.println("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
+                                            nombre = entrada.nextLine();
+                                            System.out.print("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
                                             String fecha = entrada.next();
-                                            System.out.println("Ingrese su horario de trabajo: ");
+                                            System.out.print("Ingrese su horario de trabajo: ");
                                             String horario = entrada.nextLine();
                                             System.out.println("Empleado agregado exitosamente");
                                             SimpleDateFormat sdf3 = new SimpleDateFormat("dd/MM/yyyy");
@@ -433,7 +434,10 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     } // Fin Switch Eliminar
                                     break;
                                 case 4:
-
+                                    System.out.println("Localess: ");
+                                    for (Object o : locales) {
+                                        System.out.println(locales.indexOf(o) + " = " + o);
+                                    } // Fin For
                                     break;
                                 default:
                                     System.out.println("¡Entrada no valida!");
@@ -508,7 +512,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     System.out.println("ingrese el indice del cliente");
                                     int atendido = entrada.nextInt();
                                     double f2;
-                                    f2 = ((Cliente)personas.get(atendido)).getMoney();
+                                    f2 = ((Cliente) personas.get(atendido)).getMoney();
                                     double gasto = p.getPrecio() * comprar;
                                     if (f2 < gasto) {
                                         System.out.println("NO CUENTA CON EL SALDO NECESARIO PARA REALIZAR LA COMPRA");
