@@ -456,7 +456,80 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                             } // Fin While
                             System.out.println("¡Bienvenido Cliente!");
                             System.out.println("¿Que desea hacer el dia de hoy?");
-                            System.out.println("1) ");
+                            System.out.println("1) Ver tiendas y productos");
+                            System.out.println("2) Comprar");
+                            System.out.print("Ingrese la opcion deseada: ");
+                            int x = entrada.nextInt();
+                            int indice;
+                            switch (x) {
+                                case 1:
+                                    System.out.println("Las tiendas a su disposicion son las siguientes");
+                                    for (Object o : locales) {
+                                        if (o instanceof Tienda) {
+                                            System.out.println(locales.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    } // Fin For
+                                    System.out.print("Ingrese de que tienda desea ver sus productos: ");
+                                    indice = entrada.nextInt();
+                                    System.out.println(locales.get(indice).getProductos());
+                                    break;
+                                case 2:
+                                    System.out.println("Las tiendas a su disposicion son las siguientes");
+                                    for (Object o : locales) {
+                                        if (o instanceof Tienda) {
+                                            System.out.println(locales.indexOf(o) + " = " + o);
+                                        } // Fin If
+                                    }
+                                    System.out.println("Ingrese de que tienda desea comprar productos");
+                                    indice = entrada.nextInt();
+                                    while (indice - 1 > Tiendas.size()) {
+                                        System.out.println("ingrese una entrada valida");
+                                        indice = entrada.nextInt();
+                                    }
+                                    System.out.println(locales.get(indice).getProductos);
+                                    System.out.println("Ingrese el indice del producto que comprara");
+                                    int compra = entrada.nextInt();
+                                    System.out.println("ingrese la cantidad a conprar");
+                                    int comprar = entrada.nextInt();
+                                    producto p = locales.get(indice).getProductos.get(compra);
+                                    while (p.getCantidad < comprar) {
+                                        System.out.println("no hay suficiente producto. Intente de nuevo");
+                                        comprar = entrada.nextInt();
+                                    }
+                                    Cliente f = new Cliente();
+                                    String cadena = "";
+                                    for (int i = 0; i < 10; i++) {
+                                        if (personas.get(i) instanceof Cliente) {
+                                            cadena += "[" + i + "]" + personas.get(i);
+                                        }
+                                        cadena += "\n";
+                                    }
+                                    System.out.println(cadena);
+                                    System.out.println("ingrese el indice del cliente");
+                                    int atendido = entrada.nextInt();
+
+                                    int f2 = ((Cliente) personas.get(atendido).getMoney());
+
+                                    int gasto = p.getPrecio() * comprar;
+                                    if (f2 < gasto) {
+                                        System.out.println("NO CUENTA CON EL SALDO NECESARIO PARA REALIZAR LA COMPRA");
+                                        break;
+                                    } else {
+                                        ((Cliente) personas.get(atendido).setMoney(f2 - gasto));
+                                    }
+                                    for (int i = 0; i < 10; i++) {
+                                        if (personas.get(i) instanceof Empleado) {
+                                            cadena += "[" + i + "]" + personas.get(i);
+                                        }
+                                        cadena += "\n";
+                                    }
+                                    System.out.println(cadena);
+                                    System.out.println("ingrese el indice del usuario que lo atendio");
+                                    int atendio = entrada.nextInt();
+                                    int ventas = ((Empleado) personas.get(atendio).getProductoVendido()) + 1;
+                                    (Empleado) personas.get(atendio).setProductoVendido(ventas);
+                                    break;
+                            }
                             System.out.print("Ingrese la opcion deseada: ");
                             int opcion2 = entrada.nextInt();
                             switch (opcion2) {
