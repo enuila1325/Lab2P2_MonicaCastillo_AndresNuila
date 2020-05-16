@@ -121,7 +121,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             String correo = entrada.next();
                                             System.out.print("Ingrese su nombre completo: ");
                                             String nombre = entrada.nextLine();
-                                            nombre = entrada.nextLine();
+                                            entrada.nextLine();
                                             System.out.print("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
                                             String fecha = entrada.next();
                                             System.out.print("Ingrese su horario de trabajo: ");
