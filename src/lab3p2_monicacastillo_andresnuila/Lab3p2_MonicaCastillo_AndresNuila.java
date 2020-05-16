@@ -232,7 +232,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     String fecha2 = entrada.next();
                                                     Date d = n.parse(fecha2);//aqui parsear con simple date format
                                                     //Llamar metodo constructor Comida
-                                                    Comida c = new Comida();
+                                                    Comida c = new Comida(tipo, d, String nombre, double precio, String descripcion, int cantidad);
                                                     productos.add(c);
                                                     System.out.println("Las tiendas a su disposicion son las siguientes");
                                                     for (Object o : locales) {
