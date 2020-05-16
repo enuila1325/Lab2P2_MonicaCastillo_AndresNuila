@@ -14,6 +14,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
     static ArrayList<String> contraseñas = new ArrayList();
     static ArrayList<Local> locales = new ArrayList();
     static ArrayList<Persona> personas = new ArrayList();
+    static ArrayList<Persona> clientes = new ArrayList();
+    static ArrayList<Persona> empleados = new ArrayList();
     static ArrayList<Producto> productos = new ArrayList();
 
     public static void main(String[] args) throws ParseException {
@@ -64,17 +66,15 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             String local = entrada.next();
                                             System.out.println("--------------------------");
                                             String cadena = "";
-                                            for (int i = 0; i < personas.size(); i++) {
-                                                if (personas.get(i) instanceof Empleado) {
-                                                    cadena += "[" + i + "]" + personas.get(i);
-                                                }
+                                            for (int i = 0; i < empleados.size(); i++) {
+                                                cadena += "[" + i + "]" + empleados.get(i);
                                                 cadena += "\n";
                                             }
                                             System.out.println(cadena);
                                             System.out.println("--------------------------");
                                             System.out.println("Ingrese el indice del empleado que sera gerente");
                                             int ind = entrada.nextInt();
-                                            Persona gerente = personas.get(ind);
+                                            Persona gerente = empleados.get(ind);
                                             System.out.println("Ingrese el tipo de local que sera");
                                             System.out.println("1. Tienda \n2. Quiosco \n3. Bar");
                                             int tipoLocal = entrada.nextInt();
@@ -129,6 +129,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             System.out.println("Empleado agregado exitosamente");
                                             SimpleDateFormat sdf3 = new SimpleDateFormat("dd/MM/yyyy");
                                             Empleado e = new Empleado(username, ID, contraseña, correo, nombre, sdf3.parse(fecha), horario, 0);
+                                            empleados.add(e);
                                             personas.add(e);
                                             break;
                                         case 3:
@@ -160,8 +161,8 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                         System.out.println("Ingrese una entrada valida");
                                                         t = entrada.nextInt();
                                                     }
-                                                    String talla,
-                                                     genero;
+                                                    String talla = "",
+                                                     genero = "";
                                                     switch (t) {
                                                         case 1:
                                                             talla = "S";
@@ -185,13 +186,15 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     switch (t) {
                                                         case 1:
                                                             genero = "Masculino";
+                                                            break;
                                                         case 2:
                                                             genero = "Femenino";
+                                                            break;
                                                         default:
                                                             break;
                                                     }
                                                     //llamar metodo constructor ropa
-                                                    Ropa r = new Ropa(talla, user, producto, precio, descripcion, cantidad);
+                                                    Ropa r = new Ropa(talla, genero, producto, precio, descripcion, cantidad);
                                                     productos.add(r);
                                                     System.out.println("Las tiendas a su disposicion son las siguientes");
                                                     for (Object o : locales) {
@@ -206,7 +209,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     break;
                                                 case 2:
                                                     //Llamar metodo construcor de juguete
-                                                    Juguete j = new Juguete();
+                                                    Juguete j = new Juguete(producto, precio, descripcion, cantidad);
                                                     productos.add(j);
                                                     System.out.println("Las tiendas a su disposicion son las siguientes");
                                                     for (Object o : locales) {
@@ -223,9 +226,10 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     System.out.println("Ingrese si es comida o bebida");
                                                     System.out.println("1. bebida 2. Comida");
                                                     int ti = entrada.nextInt();
+                                                    String tipo = "";
                                                     switch (ti) {
                                                         case 1:
-                                                            String tipo = "Bebida";
+                                                            tipo = "Bebida";
                                                             break;
                                                         case 2:
                                                             tipo = "Comida";
@@ -238,11 +242,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     String fecha2 = entrada.next();
                                                     Date d = n.parse(fecha2);//aqui parsear con simple date format
                                                     //Llamar metodo constructor Comida
-                                                    Comida c = new Comida(tipo, d, String nombre
-                                                    , double precio,
-                                                     String descripcion
-                                                    , int cantidad
-                                                    );
+                                                    Comida c = new Comida(tipo, d, producto, precio, descripcion, cantidad);
                                                     productos.add(c);
                                                     System.out.println("Las tiendas a su disposicion son las siguientes");
                                                     for (Object o : locales) {
@@ -294,7 +294,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                                     System.out.println(locales.get(pos).getEmpleados());
                                                     System.out.print("Ingrese la posicion del empleado que desea poner de gerente: ");
                                                     int pose = entrada.nextInt();
-                                                    Empleado gerente = ((Empleado) personas.get(pose));
+                                                    Empleado gerente = ((Empleado) (empleados.get(pose)));
                                                     locales.get(pos).setJefe(gerente);
                                                     break;
                                                 default:
@@ -405,7 +405,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     System.out.println("¿Que desea eliminar?");
                                     System.out.println("1) Eliminar Local");
                                     System.out.println("2) Eliminar Producto");
-                                    System.out.println("3) Eliminar Empleado");
+                                    System.out.println("3) Eliminar Persona");
                                     System.out.print("Ingrese la opcion deseada: ");
                                     int opcion5 = entrada.nextInt();
                                     int eliminar;
@@ -415,6 +415,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             for (int i = 0; i < locales.size(); i++) {
                                                 cadenaLocales += "[" + i + "]" + locales.get(i);
                                             }
+                                            System.out.println(cadenaLocales);
                                             System.out.println("Ingrese el indice a eliminar");
                                             eliminar = entrada.nextInt();
                                             locales.remove(eliminar);
@@ -424,16 +425,19 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             for (int i = 0; i < productos.size(); i++) {
                                                 cadenaProductos += "[" + i + "]" + productos.get(i);
                                             }
+                                            System.out.println(cadenaProductos);
                                             System.out.println("Ingrese el indice a eliminar");
                                             eliminar = entrada.nextInt();
                                             productos.remove(eliminar);
                                             break;
                                         case 3:
-                                            cadenaLocales = "";
+                                            String cadenaEmpleados = "";
                                             Persona o = new Persona();
-                                            for (int i = 0; i < locales.size(); i++) {
-                                                o = personas.get(i);
-                                                cadenaLocales += "[" + i + "]" + locales.get(i);
+                                            for (int i = 0; i < personas.size(); i++) {
+
+                                                cadenaEmpleados += "[" + i + "]" + personas.get(i);
+
+                                                cadenaEmpleados += "\n";
                                             }
                                             System.out.println("Ingrese el indice a eliminar");
                                             eliminar = entrada.nextInt();
@@ -515,17 +519,17 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     }
                                     Cliente f = new Cliente();
                                     String cadena = "";
-                                    for (int i = 0; i < 10; i++) {
-                                        if (personas.get(i) instanceof Cliente) {
-                                            cadena += "[" + i + "]" + personas.get(i);
-                                        }
+                                    for (int i = 0; i < clientes.size(); i++) {
+
+                                        cadena += "[" + i + "]" + clientes.get(i);
+
                                         cadena += "\n";
                                     }
                                     System.out.println(cadena);
                                     System.out.println("ingrese el indice del cliente");
                                     int atendido = entrada.nextInt();
                                     double f2;
-                                    f2 = ((Cliente) personas.get(atendido)).getMoney();
+                                    f2 = ((Cliente) clientes.get(atendido)).getMoney();
                                     double gasto = p.getPrecio() * comprar;
                                     if (f2 < gasto) {
                                         System.out.println("NO CUENTA CON EL SALDO NECESARIO PARA REALIZAR LA COMPRA");
@@ -533,17 +537,17 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     } else {
                                         ((Cliente) personas.get(atendido)).setMoney(f2 - gasto);
                                     }
-                                    for (int i = 0; i < 10; i++) {
-                                        if (personas.get(i) instanceof Empleado) {
-                                            cadena += "[" + i + "]" + personas.get(i);
-                                        }
+                                    for (int i = 0; i < empleados.size(); i++) {
+
+                                        cadena += "[" + i + "]" + empleados.get(i);
+
                                         cadena += "\n";
                                     }
                                     System.out.println(cadena);
                                     System.out.println("ingrese el indice del usuario que lo atendio");
                                     int atendio = entrada.nextInt(); // Empleado Vendio
-                                    int ventas = ((Empleado) personas.get(atendio)).getProductoVendido() + 1;
-                                    ((Empleado) personas.get(atendio)).setProductoVendido(ventas);
+                                    int ventas = ((Empleado) empleados.get(atendio)).getProductoVendido() + 1;
+                                    ((Empleado) empleados.get(atendio)).setProductoVendido(ventas);
                                     break;
                             } // Fin Switch
                             System.out.print("Ingrese la opcion deseada: ");

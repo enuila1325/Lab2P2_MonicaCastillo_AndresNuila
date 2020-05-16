@@ -6,7 +6,10 @@ public class Bar extends Local {
 
     public Bar() {
     }
-    
+
+    public Bar(String nombre, Empleado jefe) {
+        super(nombre, jefe);
+    }
 
     public String getNombre() {
         return nombre;
