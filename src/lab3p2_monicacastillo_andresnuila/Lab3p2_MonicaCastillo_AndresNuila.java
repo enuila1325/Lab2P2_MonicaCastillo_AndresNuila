@@ -49,7 +49,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                         case 1:
                             System.out.print("Ingrese su username: ");
                             String user = entrada.next();
-                            while (user.equals("SUDO")) {
+                            while (!user.equalsIgnoreCase("SUDO")) {
                                 System.out.println("¡Su username no es valido!");
                                 System.out.print("Ingrese su username: ");
                                 user = entrada.next();
@@ -59,7 +59,7 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                             System.out.println("1) Agregar Elemento");
                             System.out.println("2) Modificar Elemento");
                             System.out.println("3) Eliminar Elemento");
-                            System.out.println("4) Listar Elemento");
+                            System.out.println("4) Facturacion");
                             System.out.print("Ingrese la opcion deseada: ");
                             int opcion3 = entrada.nextInt();
                             switch (opcion3) {
@@ -134,8 +134,11 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                             String nombre = entrada.nextLine();
                                             System.out.println("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
                                             String fecha = entrada.next();
+                                            System.out.println("Ingrese su horario de trabajo: ");
+                                            String horario = entrada.nextLine();
                                             System.out.println("Empleado agregado exitosamente");
-                                            Empleado e = new Empleado();
+                                            SimpleDateFormat sdf3 = new SimpleDateFormat("dd/MM/yyyy");
+                                            Empleado e = new Empleado(username, ID, contraseña, correo, nombre, sdf3.parse(fecha), horario, 0);
                                             personas.add(e);
                                             break;
                                         case 3:
@@ -441,73 +444,27 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                                     } // Fin Switch Eliminar
                                     break;
                                 case 4:
-                                    System.out.println("¿Que desea listar?");
-                                    System.out.println("1) Listar Local");
-                                    System.out.println("2) Listar Empleado");
-                                    System.out.println("3) Listar Producto");
-                                    System.out.print("Ingrese la opcion deseada: ");
-                                    int opcion6 = entrada.nextInt();
-                                    switch (opcion6) {
-                                        case 1:
-                                            System.out.println("¿Que desea listar?");
-                                            System.out.println("1) Tiendas");
-                                            System.out.println("2) Quiscos");
-                                            System.out.println("3) Bares");
-                                            System.out.print("Ingrese la opcion deseada: ");
-                                            int opcion7 = entrada.nextInt();
-                                            switch (opcion7) {
-                                                case 1:
-                                                    break;
-                                                case 2:
-                                                    break;
-                                                case 3:
-                                                    break;
-                                                default:
-                                                    System.out.println("¡Entrada no valida!");
-                                            } // Fin Switch Listar Locales
-                                            break;
-                                        case 2:
-                                            System.out.println("¿Que desea listar?");
-                                            System.out.println("1) Empleados");
-                                            System.out.println("2) Clientes");
-                                            System.out.print("Ingrese la opcion deseada: ");
-                                            int opcion8 = entrada.nextInt();
-                                            switch (opcion8) {
-                                                case 1:
-                                                    break;
-                                                case 2:
-                                                    break;
-                                                default:
-                                                    System.out.println("¡Entrada no valida!");
-                                            } // Fin Switch Listar Personas
-                                            break;
-                                        case 3:
-                                            break;
-                                        default:
-                                            System.out.println("¡Entrada no valida!");
-                                            break;
-                                    } // Fin Switch Listar
+
+                                    break;
                                 default:
                                     System.out.println("¡Entrada no valida!");
                             } // Fin Switch CRUD
                             break;
                         case 2:
-                            System.out.println("Ingrese su username: ");
+                            System.out.print("Ingrese su username: ");
                             String user2 = entrada.next();
                             while (Usernames(user2) == false) {
                                 System.out.println("¡El username ingresado no se encuentra registrado!");
                                 System.out.print("Ingrese su username: ");
                                 user2 = entrada.next();
                             } // Fin While
-                            System.out.println("Ingrese su contraseña: ");
+                            System.out.print("Ingrese su contraseña: ");
                             String contra2 = entrada.next();
                             while (Registro(user2, contra2) == false) {
                                 System.out.println("¡Contraseña no valida!");
-                                System.out.print("Ingrese su username: ");
-                                user2 = entrada.next();
+                                System.out.print("Ingrese su contraseña: ");
+                                contra2 = entrada.next();
                             } // Fin While
-                            System.out.println("¿Con cuenta dinero cuenta el dia de hoy?");
-                            double dinero = entrada.nextDouble();
                             System.out.println("¡Bienvenido Cliente!");
                             System.out.println("¿Que desea hacer el dia de hoy?");
                             System.out.println("1) ");
@@ -544,14 +501,18 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
                     System.out.print("Ingrese su contraseña: ");
                     String contraseña = entrada.next();
                     contraseñas.add(contraseña);
-                    System.out.println("Ingrese su correo electronico: ");
+                    System.out.print("Ingrese su correo electronico: ");
                     String correo = entrada.next();
-                    System.out.println("Ingrese su nombre completo: ");
+                    System.out.print("Ingrese su nombre completo: ");
                     String nombre = entrada.nextLine();
-                    System.out.println("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
+                    nombre = entrada.nextLine();
+                    SimpleDateFormat sdf3 = new SimpleDateFormat("dd/MM/yyyy");
+                    System.out.print("Ingrese su fecha de nacimiento (dd/MM/yyyy): ");
                     String fecha = entrada.next();
+                    System.out.print("¿Con cuenta dinero cuenta el dia de hoy?");
+                    double dinero = entrada.nextDouble();
                     System.out.println("¡Se ha logrado registrar exitosamente!");
-                    Cliente cliente = new Cliente();
+                    Cliente cliente = new Cliente(ID, contraseña, correo, nombre, sdf3.parse(fecha),dinero, username);
                     personas.add(cliente);
                     break;
                 case 3:
@@ -587,9 +548,11 @@ public class Lab3p2_MonicaCastillo_AndresNuila {
     } // Fin Codigos
 
     public static boolean Registro(String username, String password) {
+        int pos;
         for (int i = 0; i < usernames.size(); i++) {
             if (usernames.get(i).equals(username)) {
-                if (contraseñas.get(i).equals(password)) {
+                pos = i;
+                if (contraseñas.get(pos).equals(password)) {
                     return true;
                 } else {
                     return false;
